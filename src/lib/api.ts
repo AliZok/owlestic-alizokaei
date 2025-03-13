@@ -3,7 +3,7 @@ import type { Order } from "@/types/order"
 // Mock data for demonstration
 const mockOrders: Order[] = [
   {
-    id: "ORD-001",
+    id: "1",
     customer: {
       id: "CUST-001",
       name: "John Doe",
@@ -18,7 +18,7 @@ const mockOrders: Order[] = [
     status: "delivered",
   },
   {
-    id: "ORD-002",
+    id: "2",
     customer: {
       id: "CUST-002",
       name: "Jane Smith",
@@ -30,7 +30,7 @@ const mockOrders: Order[] = [
     status: "shipped",
   },
   {
-    id: "ORD-003",
+    id: "3",
     customer: {
       id: "CUST-003",
       name: "Robert Johnson",
@@ -45,7 +45,7 @@ const mockOrders: Order[] = [
     status: "processing",
   },
   {
-    id: "ORD-004",
+    id: "4",
     customer: {
       id: "CUST-004",
       name: "Emily Davis",
@@ -57,7 +57,7 @@ const mockOrders: Order[] = [
     status: "pending",
   },
   {
-    id: "ORD-005",
+    id: "5",
     customer: {
       id: "CUST-005",
       name: "Michael Wilson",
@@ -72,7 +72,7 @@ const mockOrders: Order[] = [
     status: "cancelled",
   },
   {
-    id: "ORD-006",
+    id: "6",
     customer: {
       id: "CUST-006",
       name: "Sarah Brown",
@@ -82,33 +82,6 @@ const mockOrders: Order[] = [
     items: [{ id: "ITEM-009", name: "Product I", price: 59.99, quantity: 1 }],
     total: 59.99,
     status: "delivered",
-  },
-  {
-    id: "ORD-007",
-    customer: {
-      id: "CUST-007",
-      name: "David Miller",
-      email: "david.miller@example.com",
-    },
-    date: "2023-03-21T10:15:00Z",
-    items: [{ id: "ITEM-010", name: "Product J", price: 49.99, quantity: 3 }],
-    total: 149.97,
-    status: "shipped",
-  },
-  {
-    id: "ORD-008",
-    customer: {
-      id: "CUST-008",
-      name: "Jennifer Taylor",
-      email: "jennifer.taylor@example.com",
-    },
-    date: "2023-03-22T15:30:00Z",
-    items: [
-      { id: "ITEM-011", name: "Product K", price: 34.99, quantity: 2 },
-      { id: "ITEM-012", name: "Product L", price: 29.99, quantity: 1 },
-    ],
-    total: 99.97,
-    status: "pending",
   },
 ]
 
