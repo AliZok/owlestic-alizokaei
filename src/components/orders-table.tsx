@@ -79,17 +79,30 @@ export function OrdersTable({
   const getStatusColor = (status: string) => {
     switch (status) {
       case "pending":
-        return "bg-yellow-500/20 text-yellow-700 hover:bg-yellow-500/30"
+        return "bg-yellow-200 text-yellow-600"
       case "processing":
-        return "bg-blue-500/20 text-blue-700 hover:bg-blue-500/30"
-      case "shipped":
-        return "bg-green-500/20 text-green-700 hover:bg-green-500/30"
+        return "bg-sky-400/20 text-sky-700"
       case "delivered":
-        return "bg-green-700/20 text-green-800 hover:bg-green-700/30"
+        return "bg-teal-400/20 text-teal-600"
       case "cancelled":
-        return "bg-red-500/20 text-red-700 hover:bg-red-500/30"
+        return "bg-pink-500/20 text-pink-700"
       default:
-        return "bg-gray-500/20 text-gray-700 hover:bg-gray-500/30"
+        return "bg-gray-500/20 text-gray-700"
+    }
+  }
+
+  const getStatusText = (status: string) => {
+    switch (status) {
+      case "pending":
+        return "در انتظار"
+      case "processing":
+        return "آماده"
+      case "delivered":
+        return "تحویل شده"
+      case "cancelled":
+        return "کنسل شده"
+      default:
+        return "bg-gray-500/20 text-gray-700"
     }
   }
 
@@ -172,7 +185,7 @@ export function OrdersTable({
                     <TableCell align="left">{order.total.toLocaleString()}</TableCell>
                     <TableCell align="center">
                       <Badge className={getStatusColor(order.status)} variant="outline">
-                        {order.status.charAt(0).toUpperCase() + order.status.slice(1)}
+                        {getStatusText(order.status)}
                       </Badge>
                     </TableCell>
                     <TableCell align="center">

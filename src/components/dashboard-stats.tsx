@@ -42,7 +42,7 @@ export function DashboardStats({ orders }: DashboardStatsProps) {
         </CardHeader>
         <CardContent>
           <div className="text-2xl font-bold">{pendingOrders}</div>
-          <p className="text-xs text-muted-foreground">گل سفارشاتی که برگشت خورده</p>
+          <p className="text-xs text-muted-foreground">کل سفارشاتی که برگشت خورده</p>
         </CardContent>
       </Card>
       <Card>

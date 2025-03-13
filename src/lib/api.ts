@@ -27,7 +27,7 @@ const mockOrders: Order[] = [
     date: "53",
     items: [{ id: "ITEM-003", name: "Product C", price: 19.99, quantity: 3 }],
     total: 5500000,
-    status: "shipped",
+    status: "delivered",
   },
   {
     id: "3",
