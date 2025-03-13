@@ -6,10 +6,10 @@ const mockOrders: Order[] = [
     id: "1",
     customer: {
       id: "CUST-001",
-      name: "John Doe",
+      name: "کیبورد A4tech",
       email: "john.doe@example.com",
     },
-    date: "2023-03-15T10:30:00Z",
+    date: "456",
     items: [
       { id: "ITEM-001", name: "Product A", price: 29.99, quantity: 2 },
       { id: "ITEM-002", name: "Product B", price: 49.99, quantity: 1 },
@@ -21,10 +21,10 @@ const mockOrders: Order[] = [
     id: "2",
     customer: {
       id: "CUST-002",
-      name: "Jane Smith",
+      name: "اسپیکر Creative",
       email: "jane.smith@example.com",
     },
-    date: "2023-03-16T14:45:00Z",
+    date: "53",
     items: [{ id: "ITEM-003", name: "Product C", price: 19.99, quantity: 3 }],
     total: 59.97,
     status: "shipped",
@@ -33,10 +33,10 @@ const mockOrders: Order[] = [
     id: "3",
     customer: {
       id: "CUST-003",
-      name: "Robert Johnson",
+      name: "تلویزیون SONY",
       email: "robert.johnson@example.com",
     },
-    date: "2023-03-17T09:15:00Z",
+    date: "166",
     items: [
       { id: "ITEM-004", name: "Product D", price: 99.99, quantity: 1 },
       { id: "ITEM-005", name: "Product E", price: 14.99, quantity: 2 },
@@ -48,10 +48,10 @@ const mockOrders: Order[] = [
     id: "4",
     customer: {
       id: "CUST-004",
-      name: "Emily Davis",
+      name: "ساعت هوشمند",
       email: "emily.davis@example.com",
     },
-    date: "2023-03-18T16:30:00Z",
+    date: "150",
     items: [{ id: "ITEM-006", name: "Product F", price: 79.99, quantity: 1 }],
     total: 79.99,
     status: "pending",
@@ -60,10 +60,10 @@ const mockOrders: Order[] = [
     id: "5",
     customer: {
       id: "CUST-005",
-      name: "Michael Wilson",
+      name: "آیفون 16",
       email: "michael.wilson@example.com",
     },
-    date: "2023-03-19T11:00:00Z",
+    date: "60",
     items: [
       { id: "ITEM-007", name: "Product G", price: 39.99, quantity: 2 },
       { id: "ITEM-008", name: "Product H", price: 24.99, quantity: 1 },
@@ -74,11 +74,11 @@ const mockOrders: Order[] = [
   {
     id: "6",
     customer: {
-      id: "CUST-006",
-      name: "Sarah Brown",
+      id: "6",
+      name: "مانیتور Samsung",
       email: "sarah.brown@example.com",
     },
-    date: "2023-03-20T13:45:00Z",
+    date: "100",
     items: [{ id: "ITEM-009", name: "Product I", price: 59.99, quantity: 1 }],
     total: 59.99,
     status: "delivered",
@@ -92,7 +92,7 @@ const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 export async function fetchOrdersApi(): Promise<Order[]> {
 
   await delay(1000)
-  
+
   return [...mockOrders]
 }
 

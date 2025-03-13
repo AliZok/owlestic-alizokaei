@@ -36,14 +36,6 @@ function createData(
   return { name, calories, fat, carbs, action };
 }
 
-const rows = [
-  { name: 'alizoka', calories: 'bagher', fat: 'gahsem', carbs: 'system', protein: 'jasem',Action:'' },
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
 
 export function OrdersTable({
   orders,
@@ -151,12 +143,12 @@ export function OrdersTable({
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
               <TableRow>
-                <TableCell>Name</TableCell>
-                <TableCell align="right">Calories</TableCell>
-                <TableCell align="right">Fat&nbsp;(g)</TableCell>
-                <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-                <TableCell align="right">Protein&nbsp;(g)</TableCell>
-                <TableCell align="right">Action&nbsp;(g)</TableCell>
+                <TableCell  align="right">شناسه</TableCell>
+                <TableCell align="right">محصول</TableCell>
+                <TableCell align="right">تعداد</TableCell>
+                <TableCell align="right">قیمت</TableCell>
+                <TableCell align="center">وضعیت</TableCell>
+                <TableCell align="center">عملیات</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -172,18 +164,18 @@ export function OrdersTable({
                     key={order.id}
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                   >
-                    <TableCell component="th" scope="row">
+                    <TableCell align="right" component="th" scope="row">
                       {order.id}
                     </TableCell>
                     <TableCell align="right">{order.customer.name}</TableCell>
                     <TableCell align="right">{new Date(order.date).toLocaleDateString()}</TableCell>
                     <TableCell align="right">{order.total.toFixed(2)}</TableCell>
-                    <TableCell align="right">
+                    <TableCell align="center">
                       <Badge className={getStatusColor(order.status)} variant="outline">
                         {order.status.charAt(0).toUpperCase() + order.status.slice(1)}
                       </Badge>
                     </TableCell>
-                    <TableCell align="right">
+                    <TableCell align="center">
                       <MenuDropDown></MenuDropDown>
                       {/* <DropdownMenu>
                         <DropdownMenuTrigger asChild>
