@@ -90,8 +90,9 @@ const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
 // Fetch all orders
 export async function fetchOrdersApi(): Promise<Order[]> {
-  // Simulate API call
+
   await delay(1000)
+  
   return [...mockOrders]
 }
 

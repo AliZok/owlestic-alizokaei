@@ -1,7 +1,15 @@
 "use client"
 
 import { useState } from "react"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import * as React from 'react';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -24,6 +32,24 @@ interface OrdersTableProps {
   statusFilter: string | null
   onStatusFilterChange: (status: string | null) => void
 }
+
+function createData(
+  name: string,
+  calories: number,
+  fat: number,
+  carbs: number,
+  protein: number,
+) {
+  return { name, calories, fat, carbs, protein };
+}
+
+const rows = [
+  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
+  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
+  createData('Eclair', 262, 16.0, 24, 6.0),
+  createData('Cupcake', 305, 3.7, 67, 4.3),
+  createData('Gingerbread', 356, 16.0, 49, 3.9),
+];
 
 export function OrdersTable({
   orders,
@@ -127,120 +153,35 @@ export function OrdersTable({
         </div>
       </div>
       <div className="rounded-md border">
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead className="cursor-pointer" onClick={() => handleSort("id")}>
-                Order ID
-              </TableHead>
-              <TableHead className="cursor-pointer" onClick={() => handleSort("customer")}>
-                Customer
-              </TableHead>
-              <TableHead className="cursor-pointer" onClick={() => handleSort("date")}>
-                Date
-              </TableHead>
-              <TableHead className="cursor-pointer" onClick={() => handleSort("total")}>
-                Total
-              </TableHead>
-              <TableHead className="cursor-pointer" onClick={() => handleSort("status")}>
-                Status
-              </TableHead>
-              <TableHead className="text-right">Actions</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {sortedOrders.length === 0 ? (
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
               <TableRow>
-                <TableCell colSpan={6} className="h-24 text-center">
-                  No orders found.
-                </TableCell>
+                <TableCell>Dessert (100g serving)</TableCell>
+                <TableCell align="right">Calories</TableCell>
+                <TableCell align="right">Fat&nbsp;(g)</TableCell>
+                <TableCell align="right">Carbs&nbsp;(g)</TableCell>
+                <TableCell align="right">Protein&nbsp;(g)</TableCell>
               </TableRow>
-            ) : (
-              sortedOrders.map((order) => (
-                <TableRow key={order.id}>
-                  <TableCell className="font-medium">{order.id}</TableCell>
-                  <TableCell>{order.customer.name}</TableCell>
-                  <TableCell>{new Date(order.date).toLocaleDateString()}</TableCell>
-                  <TableCell>${order.total.toFixed(2)}</TableCell>
-                  <TableCell>
-                    <Badge className={getStatusColor(order.status)} variant="outline">
-                      {order.status.charAt(0).toUpperCase() + order.status.slice(1)}
-                    </Badge>
+            </TableHead>
+            <TableBody>
+              {rows.map((row) => (
+                <TableRow
+                  key={row.name}
+                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                >
+                  <TableCell component="th" scope="row">
+                    {row.name}
                   </TableCell>
-                  <TableCell className="text-right">
-                    <DropdownMenu>
-                      <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" className="h-8 w-8 p-0">
-                          <span className="sr-only">Open menu</span>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            className="h-4 w-4"
-                          >
-                            <circle cx="12" cy="5" r="1"></circle>
-                            <circle cx="12" cy="12" r="1"></circle>
-                            <circle cx="12" cy="19" r="1"></circle>
-                          </svg>
-                        </Button>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent align="end">
-                        <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                        <DropdownMenuSeparator />
-                        <DropdownMenuItem onClick={() => (window.location.href = `/orders/${order.id}`)}>
-                          View details
-                        </DropdownMenuItem>
-                        <DropdownMenuSeparator />
-                        <DropdownMenuLabel>Update Status</DropdownMenuLabel>
-                        <DropdownMenuItem
-                          onClick={() => updateOrderStatus(order.id, "pending")}
-                          data-disabled={order.status === "pending"}
-                          className={order.status === "pending" ? "opacity-50 pointer-events-none" : ""}
-                        >
-                          Pending
-                        </DropdownMenuItem>
-                        <DropdownMenuItem
-                          onClick={() => updateOrderStatus(order.id, "processing")}
-                          data-disabled={order.status === "processing"}
-                          className={order.status === "processing" ? "opacity-50 pointer-events-none" : ""}
-                        >
-                          Processing
-                        </DropdownMenuItem>
-                        <DropdownMenuItem
-                          onClick={() => updateOrderStatus(order.id, "shipped")}
-                          data-disabled={order.status === "shipped"}
-                          className={order.status === "shipped" ? "opacity-50 pointer-events-none" : ""}
-                        >
-                          Shipped
-                        </DropdownMenuItem>
-                        <DropdownMenuItem
-                          onClick={() => updateOrderStatus(order.id, "delivered")}
-                          data-disabled={order.status === "delivered"}
-                          className={order.status === "delivered" ? "opacity-50 pointer-events-none" : ""}
-                        >
-                          Delivered
-                        </DropdownMenuItem>
-                        <DropdownMenuItem
-                          onClick={() => updateOrderStatus(order.id, "cancelled")}
-                          data-disabled={order.status === "cancelled"}
-                          className={order.status === "cancelled" ? "opacity-50 pointer-events-none" : ""}
-                        >
-                          Cancelled
-                        </DropdownMenuItem>
-                      </DropdownMenuContent>
-                    </DropdownMenu>
-                  </TableCell>
+                  <TableCell align="right">{row.calories}</TableCell>
+                  <TableCell align="right">{row.fat}</TableCell>
+                  <TableCell align="right">{row.carbs}</TableCell>
+                  <TableCell align="right">{row.protein}</TableCell>
                 </TableRow>
-              ))
-            )}
-          </TableBody>
-        </Table>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       </div>
     </div>
   )
