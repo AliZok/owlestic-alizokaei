@@ -14,7 +14,7 @@ const mockOrders: Order[] = [
       { id: "ITEM-001", name: "Product A", price: 29.99, quantity: 2 },
       { id: "ITEM-002", name: "Product B", price: 49.99, quantity: 1 },
     ],
-    total: 109.97,
+    total: 600000,
     status: "delivered",
   },
   {
@@ -26,7 +26,7 @@ const mockOrders: Order[] = [
     },
     date: "53",
     items: [{ id: "ITEM-003", name: "Product C", price: 19.99, quantity: 3 }],
-    total: 59.97,
+    total: 5500000,
     status: "shipped",
   },
   {
@@ -41,7 +41,7 @@ const mockOrders: Order[] = [
       { id: "ITEM-004", name: "Product D", price: 99.99, quantity: 1 },
       { id: "ITEM-005", name: "Product E", price: 14.99, quantity: 2 },
     ],
-    total: 129.97,
+    total: 25000000,
     status: "processing",
   },
   {
@@ -53,7 +53,7 @@ const mockOrders: Order[] = [
     },
     date: "150",
     items: [{ id: "ITEM-006", name: "Product F", price: 79.99, quantity: 1 }],
-    total: 79.99,
+    total: 4500000,
     status: "pending",
   },
   {
@@ -68,7 +68,7 @@ const mockOrders: Order[] = [
       { id: "ITEM-007", name: "Product G", price: 39.99, quantity: 2 },
       { id: "ITEM-008", name: "Product H", price: 24.99, quantity: 1 },
     ],
-    total: 104.97,
+    total: 120000000,
     status: "cancelled",
   },
   {
@@ -80,7 +80,7 @@ const mockOrders: Order[] = [
     },
     date: "100",
     items: [{ id: "ITEM-009", name: "Product I", price: 59.99, quantity: 1 }],
-    total: 59.99,
+    total: 23000000,
     status: "delivered",
   },
 ]

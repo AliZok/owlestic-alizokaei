@@ -146,7 +146,7 @@ export function OrdersTable({
                 <TableCell  align="right">شناسه</TableCell>
                 <TableCell align="right">محصول</TableCell>
                 <TableCell align="right">تعداد</TableCell>
-                <TableCell align="right">قیمت</TableCell>
+                <TableCell align="left">قیمت</TableCell>
                 <TableCell align="center">وضعیت</TableCell>
                 <TableCell align="center">عملیات</TableCell>
               </TableRow>
@@ -168,8 +168,8 @@ export function OrdersTable({
                       {order.id}
                     </TableCell>
                     <TableCell align="right">{order.customer.name}</TableCell>
-                    <TableCell align="right">{new Date(order.date).toLocaleDateString()}</TableCell>
-                    <TableCell align="right">{order.total.toFixed(2)}</TableCell>
+                    <TableCell align="right">{order.date}</TableCell>
+                    <TableCell align="left">{order.total.toLocaleString()}</TableCell>
                     <TableCell align="center">
                       <Badge className={getStatusColor(order.status)} variant="outline">
                         {order.status.charAt(0).toUpperCase() + order.status.slice(1)}
