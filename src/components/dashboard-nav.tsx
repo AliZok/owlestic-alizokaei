@@ -50,7 +50,7 @@ export function DashboardNav() {
       <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
         <Link href="/" className="flex items-center gap-2 font-semibold">
           <Package className="h-6 w-6" />
-          <span>OrderFlow</span>
+          <span>myBrand</span>
         </Link>
       </div>
       <div className="flex-1 overflow-auto py-2">
