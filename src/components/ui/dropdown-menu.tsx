@@ -34,8 +34,7 @@ const MenuDropDown = ({ children, className }: MenuDropDownProps) => {
         >
           Dashboard
         </Button> */}
-        <div className="h-8 w-8 p-0" onClick={handleClick} id="demo-positioned-button">
-          <span className="sr-only">Open menu</span>
+        <div className="h-8 w-8 flex items-center justify-center" onClick={handleClick} id="demo-positioned-button">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -68,9 +67,10 @@ const MenuDropDown = ({ children, className }: MenuDropDownProps) => {
             horizontal: 'left',
           }}
         >
-          <MenuItem onClick={handleClose}>Profile</MenuItem>
-          <MenuItem onClick={handleClose}>My account</MenuItem>
-          <MenuItem onClick={handleClose}>Logout</MenuItem>
+          <MenuItem onClick={handleClose}>آماده</MenuItem>
+          <MenuItem onClick={handleClose}>در انتظار</MenuItem>
+          <MenuItem onClick={handleClose}>ارسال شده</MenuItem>
+          <MenuItem onClick={handleClose}>کنسل شده</MenuItem>
         </Menu>
       </div>
     </div>
