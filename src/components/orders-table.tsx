@@ -162,7 +162,7 @@ export function OrdersTable({
           >
             <MenuItem onClick={() => handleCloseMenu('pending')}>در انتظار</MenuItem>
             <MenuItem onClick={() => handleCloseMenu('delivered')}>تحویل شده</MenuItem>
-            <MenuItem onClick={() => handleCloseMenu('cancelled')}>برگشت خورده</MenuItem>
+            <MenuItem onClick={() => handleCloseMenu('cancelled')}>کنسل شده</MenuItem>
             <MenuItem onClick={() => handleCloseMenu('ready')}>آماده</MenuItem>
 
           </Menu>
