@@ -46,12 +46,13 @@ export function OrdersTable({
   statusFilter,
   onStatusFilterChange,
 }: OrdersTableProps) {
+  
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
-  const handleClose = (value: string) => {
+  const handleCloseMenu = (value: string) => {
     setAnchorEl(null);
     onStatusFilterChange(value)
   };
@@ -61,14 +62,6 @@ export function OrdersTable({
   const [sortColumn, setSortColumn] = useState<keyof Order>("date")
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("desc")
 
-  const handleSort = (column: keyof Order) => {
-    if (sortColumn === column) {
-      setSortDirection(sortDirection === "asc" ? "desc" : "asc")
-    } else {
-      setSortColumn(column)
-      setSortDirection("asc")
-    }
-  }
 
   const sortedOrders = [...orders].sort((a, b) => {
     if (sortColumn === "date") {
@@ -167,10 +160,10 @@ export function OrdersTable({
               horizontal: 'left',
             }}
           >
-            <MenuItem onClick={() => handleClose('pending')}>در انتظار</MenuItem>
-            <MenuItem onClick={() => handleClose('delivered')}>تحویل شده</MenuItem>
-            <MenuItem onClick={() => handleClose('cancelled')}>برگشت خورده</MenuItem>
-            <MenuItem onClick={() => handleClose('ready')}>آماده</MenuItem>
+            <MenuItem onClick={() => handleCloseMenu('pending')}>در انتظار</MenuItem>
+            <MenuItem onClick={() => handleCloseMenu('delivered')}>تحویل شده</MenuItem>
+            <MenuItem onClick={() => handleCloseMenu('cancelled')}>برگشت خورده</MenuItem>
+            <MenuItem onClick={() => handleCloseMenu('ready')}>آماده</MenuItem>
 
           </Menu>
         </div>

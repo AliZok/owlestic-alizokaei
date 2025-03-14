@@ -1,6 +1,8 @@
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import * as React from 'react';
+import { useOrders } from "@/context/orders-context"
+
 
 interface MenuDropDownProps {
   className?: string
@@ -8,7 +10,7 @@ interface MenuDropDownProps {
 }
 
 const MenuDropDown = ({ children, className }: MenuDropDownProps) => {
-
+  const { updateOrderStatus, fetchOrders } = useOrders()
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -17,6 +19,8 @@ const MenuDropDown = ({ children, className }: MenuDropDownProps) => {
   };
   const handleClose = () => {
     setAnchorEl(null);
+    updateOrderStatus('1','cancelled')
+    fetchOrders()
   };
 
 
@@ -24,15 +28,6 @@ const MenuDropDown = ({ children, className }: MenuDropDownProps) => {
     <div className="MenuDropDown inline-block">
 
       <div>
-        {/* <Button
-          id="demo-positioned-button"
-          aria-controls={open ? 'demo-positioned-menu' : undefined}
-          aria-haspopup="true"
-          aria-expanded={open ? 'true' : undefined}
-          onClick={handleClick}
-        >
-          Dashboard
-        </Button> */}
         <div className="h-8 w-8 flex items-center justify-center" onClick={handleClick} id="demo-positioned-button">
           <svg
             xmlns="http://www.w3.org/2000/svg"
