@@ -83,8 +83,6 @@ export async function fetchOrdersApi(): Promise<Order[]> {
 
 // Update order status
 export async function updateOrderStatusApi(orderId: string, status: string): Promise<Order> {
-  // Simulate API call
-  await delay(500)
 
   const order = mockOrders.find((o) => o.id === orderId)
   if (!order) {

@@ -20,7 +20,7 @@ const MenuDropDown = ({ children, className }: MenuDropDownProps) => {
   const handleClose = () => {
     setAnchorEl(null);
     updateOrderStatus('1','cancelled')
-    fetchOrders()
+    // fetchOrders()
   };
 
 
