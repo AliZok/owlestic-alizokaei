@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import type { Order } from "@/types/order"
-import { DollarSign, Package, PackageCheck, Clock } from "lucide-react"
+import { DollarSign, Package, PackageCheck, AlertTriangle } from "lucide-react"
 
 interface DashboardStatsProps {
   orders: Order[]
@@ -35,7 +35,7 @@ export function DashboardStats({ orders }: DashboardStatsProps) {
           <Package className="h-4 w-4 text-muted-foreground" />
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">{totalOrders}</div>
+          <div className="text-2xl font-bold text-sky-700">{totalOrders}</div>
           <p className="text-xs text-muted-foreground">کل سفارشات امروز</p>
         </CardContent>
       </Card>
@@ -45,17 +45,17 @@ export function DashboardStats({ orders }: DashboardStatsProps) {
           <PackageCheck className="h-4 w-4 text-muted-foreground" />
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">{deliveredOrders}</div>
+          <div className="text-2xl font-bold text-emerald-500">{deliveredOrders}</div>
           <p className="text-xs text-muted-foreground">سفارشاتی که به مشتری رسیده</p>
         </CardContent>
       </Card>
       <Card>
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
           <CardTitle className="text-sm font-medium">برگشتی</CardTitle>
-          <Clock className="h-4 w-4 text-muted-foreground" />
+          <AlertTriangle className="h-4 w-4 text-muted-foreground" />
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">{cancelledOrders}</div>
+          <div className="text-2xl font-bold text-pink-700">{cancelledOrders}</div>
           <p className="text-xs text-muted-foreground">کل سفارشاتی که برگشت خورده</p>
         </CardContent>
       </Card>
