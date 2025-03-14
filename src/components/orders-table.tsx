@@ -89,7 +89,7 @@ export function OrdersTable({
 
   return (
     <div className="space-y-4">
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex gap-4 flex-row sm:items-center justify-between">
         <div className="flex w-full max-w-sm items-center space-x-2">
           <div className="relative w-full search-wrapper ">
             <svg

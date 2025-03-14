@@ -21,7 +21,11 @@ export function DashboardStats({ orders }: DashboardStatsProps) {
           <DollarSign className="h-4 w-4 text-muted-foreground" />
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold" dir="rtl">{totalRevenue.toLocaleString()} <span className="text-[10px]">تومان</span></div>
+          <div className="text-2xl font-bold" dir="rtl">
+            <span className="text-sky-600">
+            {totalRevenue.toLocaleString()} 
+            </span>
+            <span className="text-[10px]">تومان</span></div>
           <p className="text-xs text-muted-foreground">از {totalOrders} سفارش</p>
         </CardContent>
       </Card>
