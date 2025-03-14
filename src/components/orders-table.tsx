@@ -102,7 +102,7 @@ export function OrdersTable({
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="absolute left-2.5 top-3 h-4 w-4 text-sky-400"
+              className="absolute left-2.5 top-3 h-4 w-4 text-sky-800"
             >
               <circle cx="11" cy="11" r="8"></circle>
               <path d="m21 21-4.3-4.3"></path>
@@ -110,7 +110,7 @@ export function OrdersTable({
             <Input
               type="search"
               placeholder="جستجو"
-              className="w-full pl-8 placeholder-sky-400 focus:placeholder-sky-600"
+              className="w-full pl-8 placeholder-sky-800 focus:placeholder-sky-800"
               value={searchQuery}
               onChange={(e) => onSearchChange(e.target.value)}
             />

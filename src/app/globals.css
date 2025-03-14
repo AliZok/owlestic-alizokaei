@@ -70,9 +70,9 @@ body {
 
 
 .my-input {
-  @apply border-sky-400 border-2
+  @apply border-sky-600 border-2
 }
 
 .my-input:focus {
-  @apply border-sky-600 border-2
+  @apply border-sky-400 border-2
 }
