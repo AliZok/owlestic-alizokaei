@@ -150,7 +150,7 @@ export function OrdersTable({
           </Menu>
         </div>
       </div>
-      <div className="rounded-md ">
+      <div className="rounded-xl">
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
@@ -167,7 +167,7 @@ export function OrdersTable({
               {orders.length === 0 ? (
                 <TableRow>
                   <TableCell colSpan={6} className="h-24 text-center">
-                    No orders found.
+                    هیچ سفارشی موجود نیست
                   </TableCell>
                 </TableRow>
               ) :
