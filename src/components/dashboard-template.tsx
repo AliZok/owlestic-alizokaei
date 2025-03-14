@@ -29,7 +29,7 @@ const NAVIGATION: Navigation = [
   },
 ];
 
-interface DashboardTemplateProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface DashboardTemplateProps extends React.HTMLAttributes<HTMLDivElement> { }
 
 export default function DashboardTemplate({ children, className, ...props }: DashboardTemplateProps) {
 
@@ -43,7 +43,9 @@ export default function DashboardTemplate({ children, className, ...props }: Das
       }}
     >
       <DashboardLayout>
-        {children}
+        <div className='p-4'>
+          {children}
+        </div>
       </DashboardLayout>
     </AppProvider>
   );

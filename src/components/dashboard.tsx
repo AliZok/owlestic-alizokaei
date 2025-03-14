@@ -32,7 +32,7 @@ export default function Dashboard() {
   if (error) {
     return (
       <DashboardTemplate>
-        <DashboardHeader heading="سفارشات" text="مدیریت سفارشات مشتریان" />
+        <DashboardHeader heading="سفارشات" text="مدیریت سفارشات مشتریان" className='mb-2'/>
         <div className="flex flex-col items-center justify-center space-y-4 py-12">
           <p className="text-muted-foreground">Failed to load orders: {error}</p>
           <Button onClick={() => fetchOrders()}>Try Again</Button>
@@ -43,7 +43,7 @@ export default function Dashboard() {
 
   return (
     <DashboardTemplate>
-      <DashboardHeader heading="سفارشات" text="مدیریت سفارشات مشتریان" />
+      <DashboardHeader heading="سفارشات" text="مدیریت سفارشات مشتریان"  className='mb-2' />
       {loading ? (
         <div className="flex flex-col items-center justify-center space-y-4 py-12">
           <ReloadIcon className="h-8 w-8 animate-spin" />
