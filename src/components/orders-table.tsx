@@ -90,8 +90,8 @@ export function OrdersTable({
   return (
     <div className="space-y-4">
       <div className="flex gap-4 flex-row sm:items-center justify-between">
-        <div className="flex w-full max-w-sm items-center space-x-2">
-          <div className="relative w-full search-wrapper ">
+        <div className="flex w-full items-center space-x-2 max-w-[300px]">
+          <div className="relative w-full search-wrapper">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -110,7 +110,7 @@ export function OrdersTable({
             <Input
               type="search"
               placeholder="جستجو"
-              className="w-full pl-8 placeholder-sky-800 focus:placeholder-sky-800"
+              className="w-full pl-8 placeholder-sky-800 focus:placeholder-sky-800 "
               value={searchQuery}
               onChange={(e) => onSearchChange(e.target.value)}
             />
