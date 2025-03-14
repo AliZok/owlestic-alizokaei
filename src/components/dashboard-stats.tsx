@@ -9,12 +9,12 @@ interface DashboardStatsProps {
 export function DashboardStats({ orders }: DashboardStatsProps) {
   // Calculate statistics
   const totalOrders = orders.length
-  const totalRevenue = orders.reduce((sum, order) => sum + order.total, 0)
+  const totalRevenue = orders.reduce((sum, order) => sum + (order.total * order.number), 0)
   const cancelledOrders = orders.filter((order) => order.status === "cancelled").length
   const deliveredOrders = orders.filter((order) => order.status === "delivered").length
 
   return (
-    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mb-4 text-gray-600">
+    <div className="grid gap-4 lg:grid-cols-2 xl:grid-cols-4 mb-4 text-gray-600">
       <Card>
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
           <CardTitle className="text-sm font-medium">فروش کل</CardTitle>

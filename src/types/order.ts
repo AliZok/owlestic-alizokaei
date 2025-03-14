@@ -2,7 +2,7 @@
 export interface Order {
   id: string
   name: string
-  number: string
+  number: number
   total: number
   status: string
 }

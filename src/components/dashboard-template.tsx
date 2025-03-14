@@ -4,7 +4,7 @@ import * as React from 'react';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import LayersIcon from '@mui/icons-material/Layers';
-import { AppProvider, Navigation, } from '@toolpad/core/AppProvider';
+import { AppProvider, type Navigation  } from '@toolpad/core/AppProvider';
 import { DashboardLayout } from '@toolpad/core/DashboardLayout';
 import MyLoading from "@/components/MyLoading"
 import { useOrders } from "@/context/orders-context"
