@@ -46,10 +46,8 @@ const mockOrders: Order[] = [
   },
 ]
 
-// Simulate API delay
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
-// Fetch all orders
 export async function fetchOrdersApi(): Promise<Order[]> {
 
   await delay(1000)
@@ -57,7 +55,6 @@ export async function fetchOrdersApi(): Promise<Order[]> {
   return [...mockOrders]
 }
 
-// Update order status
 export async function updateOrderStatusApi(orderId: string, status: string): Promise<Order> {
 
   const order = mockOrders.find((o) => o.id === orderId)
@@ -69,7 +66,6 @@ export async function updateOrderStatusApi(orderId: string, status: string): Pro
   return { ...order }
 }
 
-// Fetch single order
 export async function fetchOrderApi(orderId: string): Promise<Order> {
   // Simulate API call
   await delay(800)

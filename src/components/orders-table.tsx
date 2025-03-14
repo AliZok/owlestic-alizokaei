@@ -46,7 +46,7 @@ export function OrdersTable({
   statusFilter,
   onStatusFilterChange,
 }: OrdersTableProps) {
-  
+
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -56,31 +56,6 @@ export function OrdersTable({
     setAnchorEl(null);
     onStatusFilterChange(value)
   };
-
-
-  const { updateOrderStatus } = useOrders()
-  const [sortColumn, setSortColumn] = useState<keyof Order>("date")
-  const [sortDirection, setSortDirection] = useState<"asc" | "desc">("desc")
-
-
-  const sortedOrders = [...orders].sort((a, b) => {
-    if (sortColumn === "date") {
-      const dateA = new Date(a.date).getTime()
-      const dateB = new Date(b.date).getTime()
-      return sortDirection === "asc" ? dateA - dateB : dateB - dateA
-    }
-
-    if (sortColumn === "total") {
-      return sortDirection === "asc" ? a.total - b.total : b.total - a.total
-    }
-
-    const valueA = String(a[sortColumn]).toLowerCase()
-    const valueB = String(b[sortColumn]).toLowerCase()
-
-    if (valueA < valueB) return sortDirection === "asc" ? -1 : 1
-    if (valueA > valueB) return sortDirection === "asc" ? 1 : -1
-    return 0
-  })
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -182,14 +157,14 @@ export function OrdersTable({
               </TableRow>
             </TableHead>
             <TableBody>
-              {sortedOrders.length === 0 ? (
+              {orders.length === 0 ? (
                 <TableRow>
                   <TableCell colSpan={6} className="h-24 text-center">
                     No orders found.
                   </TableCell>
                 </TableRow>
               ) :
-                sortedOrders.map((order) => (
+                orders.map((order) => (
                   <TableRow
                     key={order.id}
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -197,7 +172,7 @@ export function OrdersTable({
                     <TableCell align="right" component="th" scope="row">
                       {order.id}
                     </TableCell>
-                    <TableCell align="right">{order.customer.name}</TableCell>
+                    <TableCell align="right">{order.name}</TableCell>
                     <TableCell align="right">{order.date}</TableCell>
                     <TableCell align="left">{order.total.toLocaleString()}</TableCell>
                     <TableCell align="center">
