@@ -1,41 +1,33 @@
 "use client"
 
-import { useState } from "react"
 import * as React from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+
 import MenuDropDown from "@/components/ui/dropdown-menu"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
 import type { Order } from "@/types/order"
-import { useOrders } from "@/context/orders-context"
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 import FilterListIcon from '@mui/icons-material/FilterList';
-
+import {
+  TableContainer,
+  Table,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableBody,
+  Paper,
+  useMediaQuery,
+  Box,
+  Typography,
+} from '@mui/material';
 interface OrdersTableProps {
   orders: Order[]
   searchQuery: string
   onSearchChange: (query: string) => void
   statusFilter: string | null
   onStatusFilterChange: (status: string | null) => void
-}
-
-function createData(
-  name: string,
-  calories: number,
-  fat: number,
-  carbs: number,
-  protein: number,
-  action: number,
-) {
-  return { name, calories, fat, carbs, action };
 }
 
 
@@ -152,51 +144,104 @@ export function OrdersTable({
       </div>
       <div className="rounded-xl">
         <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                <TableCell align="right">شناسه</TableCell>
-                <TableCell align="right">محصول</TableCell>
-                <TableCell align="right">تعداد</TableCell>
-                <TableCell align="left">قیمت</TableCell>
-                <TableCell align="center">وضعیت</TableCell>
-                <TableCell align="center">عملیات</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {orders.length === 0 ? (
+          <div className='hidden md:block'>
+            <Table sx={{ minWidth: 650 }} aria-label="simple table">
+              <TableHead>
                 <TableRow>
-                  <TableCell colSpan={6} className="h-24 text-center">
-                    هیچ سفارشی موجود نیست
-                  </TableCell>
+                  <TableCell align="right">شناسه</TableCell>
+                  <TableCell align="right">محصول</TableCell>
+                  <TableCell align="right">تعداد</TableCell>
+                  <TableCell align="left">قیمت</TableCell>
+                  <TableCell align="center">وضعیت</TableCell>
+                  <TableCell align="center">عملیات</TableCell>
                 </TableRow>
-              ) :
-                orders.map((order) => (
-                  <TableRow
-                    key={order.id}
-                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                  >
-                    <TableCell align="right" component="th" scope="row">
-                      {order.id}
+              </TableHead>
+              <TableBody>
+                {orders.length === 0 ? (
+                  <TableRow>
+                    <TableCell colSpan={6} className="h-24 text-center">
+                      هیچ سفارشی موجود نیست
                     </TableCell>
-                    <TableCell align="right">{order.name}</TableCell>
-                    <TableCell align="right">{order.number}</TableCell>
-                    <TableCell align="left">{order.total.toLocaleString()}</TableCell>
-                    <TableCell align="center">
+                  </TableRow>
+                ) :
+                  orders.map((order) => (
+                    <TableRow
+                      key={order.id}
+                      sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                    >
+                      <TableCell align="right" component="th" scope="row">
+                        {order.id}
+                      </TableCell>
+                      <TableCell align="right">{order.name}</TableCell>
+                      <TableCell align="right">{order.number}</TableCell>
+                      <TableCell align="left">{order.total.toLocaleString()}</TableCell>
+                      <TableCell align="center">
+                        <Badge className={getStatusColor(order.status)} variant="outline">
+                          {getStatusText(order.status)}
+                        </Badge>
+                      </TableCell>
+                      <TableCell align="center">
+                        <MenuDropDown order={order}></MenuDropDown>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+              </TableBody>
+            </Table>
+          </div>
+
+          <div className='md:hidden block'>
+            <Box sx={{ p: 2 }}>
+              {orders.length === 0 ? (
+                <Typography className="h-24 text-center">هیچ سفارشی موجود نیست</Typography>
+              ) : (
+                orders.map((order) => (
+                  <Box
+                    key={order.id}
+                    sx={{
+                      border: '1px solid #e0e0e0',
+                      borderRadius: '8px',
+                      p: 2,
+                      mb: 2,
+                    }}
+                  >
+                    <div className='flex justify-between mb-1'>
+                      <Typography >شناسه:</Typography>
+                      <Typography>{order.id}</Typography>
+                    </div>
+                    <div className='flex justify-between mb-1' >
+                      <Typography >محصول:</Typography>
+                      <Typography>{order.name}</Typography>
+                    </div>
+                    <div className='flex justify-between mb-1'>
+                      <Typography >تعداد:</Typography>
+                      <Typography>{order.number}</Typography>
+                    </div>
+                    <div className='flex justify-between mb-1'>
+                      <Typography >قیمت:</Typography>
+                      <Typography>{order.total.toLocaleString()}</Typography>
+                    </div>
+                    <div className='flex justify-between mb-1'>
+                      <Typography >وضعیت:</Typography>
                       <Badge className={getStatusColor(order.status)} variant="outline">
                         {getStatusText(order.status)}
                       </Badge>
-                    </TableCell>
-                    <TableCell align="center">
+                    </div>
+                    <div className='flex justify-between'>
+                      <Typography >عملیات:</Typography>
                       <MenuDropDown order={order}></MenuDropDown>
-                    </TableCell>
-                  </TableRow>
-                ))}
-            </TableBody>
-          </Table>
+
+                    </div>
+
+
+                  </Box>
+                ))
+              )}
+            </Box>
+          </div>
         </TableContainer>
       </div>
     </div>
   )
 }
+
 
