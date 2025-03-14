@@ -206,10 +206,8 @@ export function OrdersTable({
                       </Badge>
                     </TableCell>
                     <TableCell align="center">
-                      <MenuDropDown></MenuDropDown>
-
+                      <MenuDropDown order={order}></MenuDropDown>
                     </TableCell>
-
                   </TableRow>
                 ))}
             </TableBody>

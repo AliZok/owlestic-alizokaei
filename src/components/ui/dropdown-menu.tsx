@@ -7,9 +7,10 @@ import { useOrders } from "@/context/orders-context"
 interface MenuDropDownProps {
   className?: string
   children?: React.ReactNode
+  order?: object
 }
 
-const MenuDropDown = ({ children, className }: MenuDropDownProps) => {
+const MenuDropDown = ({ children, className, order }: MenuDropDownProps) => {
   const { updateOrderStatus, fetchOrders } = useOrders()
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -17,10 +18,11 @@ const MenuDropDown = ({ children, className }: MenuDropDownProps) => {
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
-  const handleClose = () => {
+  const handleClose = (status) => {
     setAnchorEl(null);
-    updateOrderStatus('1','cancelled')
-    // fetchOrders()
+    updateOrderStatus(order?.id, status)
+    fetchOrders()
+    console.log(order)
   };
 
 
@@ -47,7 +49,6 @@ const MenuDropDown = ({ children, className }: MenuDropDownProps) => {
           </svg>
         </div>
         <Menu
-          id="demo-positioned-menu"
           aria-labelledby="demo-positioned-button"
           anchorEl={anchorEl}
           open={open}
@@ -61,10 +62,10 @@ const MenuDropDown = ({ children, className }: MenuDropDownProps) => {
             horizontal: 'left',
           }}
         >
-          <MenuItem onClick={handleClose}>آماده</MenuItem>
-          <MenuItem onClick={handleClose}>در انتظار</MenuItem>
-          <MenuItem onClick={handleClose}>ارسال شده</MenuItem>
-          <MenuItem onClick={handleClose}>کنسل شده</MenuItem>
+          <MenuItem onClick={()=>handleClose('ready')}>آماده</MenuItem>
+          <MenuItem onClick={()=>handleClose('pending')}>در انتظار</MenuItem>
+          <MenuItem onClick={()=>handleClose('delivered')}>ارسال شده</MenuItem>
+          <MenuItem onClick={()=>handleClose('cancelled')}>کنسل شده</MenuItem>
         </Menu>
       </div>
     </div>
