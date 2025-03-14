@@ -26,8 +26,7 @@ const MenuDropDown = ({ children, className, order }: MenuDropDownProps) => {
 
 
   return (
-    <div className="MenuDropDown inline-block">
-
+    <div className="MenuDropDown inline-block rounded-full hover:bg-gray-100 cursor-pointer">
       <div>
         <div className="h-8 w-8 flex items-center justify-center" onClick={handleClick} id="demo-positioned-button">
           <svg

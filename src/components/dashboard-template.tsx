@@ -17,7 +17,7 @@ const NAVIGATION: Navigation = [
     icon: <DashboardIcon />,
   },
   {
-    segment: 'orders',
+    segment: '',
     title: 'سفارشات',
     icon: <ShoppingCartIcon />,
   },
@@ -47,7 +47,6 @@ export default function DashboardTemplate({ children, className, ...props }: Das
 
 
       <AppProvider
-
         navigation={NAVIGATION}
         branding={{
           logo: <img src="https://owlestic.ir/_next/static/media/v2SecImg2.77c6f305.png" alt="MUI logo" />,
