@@ -61,11 +61,3 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-[dir='rtl'] .css-oc2eyy-MuiPaper-root-MuiDrawer-paper{
-  left: auto !important;
-  right: 0 !important;
-}
-
-[dir='rtl'] .css-jjhd74-MuiStack-root{
-  margin-left: 0 !important;
-}
