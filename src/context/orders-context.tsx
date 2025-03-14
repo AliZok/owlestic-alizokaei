@@ -29,7 +29,6 @@ export function OrdersProvider({ children }: { children: React.ReactNode }) {
       setOrders(data)
     } catch (err) {
       setError("Failed to fetch orders. Please try again.")
-      console.error(err)
     } finally {
       setLoading(false)
     }
@@ -41,7 +40,6 @@ export function OrdersProvider({ children }: { children: React.ReactNode }) {
       setOrders((prevOrders) => prevOrders.map((order) => (order.id === orderId ? { ...order, status } : order)))
     } catch (err) {
       console.error("Failed to update order status:", err)
-      // You could add error handling here
     }
   }, [])
 
