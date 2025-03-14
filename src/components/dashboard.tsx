@@ -4,8 +4,8 @@ import { useEffect, useState } from "react"
 import { useOrders } from "@/context/orders-context"
 import { OrdersTable } from "@/components/orders-table"
 import { DashboardHeader } from "@/components/dashboard-header"
-import { DashboardShell } from "@/components/dashboard-shell"
 import { DashboardStats } from "@/components/dashboard-stats"
+import DashboardTemplate from "@/components/dashboard-template"
 import { Button } from "@/components/ui/button"
 import { ReloadIcon } from "@radix-ui/react-icons"
 
@@ -31,20 +31,19 @@ export default function Dashboard() {
 
   if (error) {
     return (
-      <DashboardShell>
+      <DashboardTemplate>
         <DashboardHeader heading="سفارشات" text="مدیریت سفارشات مشتریان" />
         <div className="flex flex-col items-center justify-center space-y-4 py-12">
           <p className="text-muted-foreground">Failed to load orders: {error}</p>
           <Button onClick={() => fetchOrders()}>Try Again</Button>
         </div>
-      </DashboardShell>
+      </DashboardTemplate>
     )
   }
 
   return (
-    <DashboardShell>
+    <DashboardTemplate>
       <DashboardHeader heading="سفارشات" text="مدیریت سفارشات مشتریان" />
-
       {loading ? (
         <div className="flex flex-col items-center justify-center space-y-4 py-12">
           <ReloadIcon className="h-8 w-8 animate-spin" />
@@ -64,7 +63,7 @@ export default function Dashboard() {
           </div>
         </>
       )}
-    </DashboardShell>
+    </DashboardTemplate>
   )
 }
 
