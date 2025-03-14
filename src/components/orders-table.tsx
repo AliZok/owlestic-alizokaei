@@ -17,7 +17,7 @@ import { useOrders } from "@/context/orders-context"
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
-
+import FilterListIcon from '@mui/icons-material/FilterList';
 
 interface OrdersTableProps {
   orders: Order[]
@@ -49,7 +49,7 @@ export function OrdersTable({
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+  const filterClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
   const handleCloseMenu = (value: string) => {
@@ -117,8 +117,17 @@ export function OrdersTable({
           </div>
         </div>
         <div className="flex items-center space-x-2">
-          <Button variant="outlined" onClick={handleClick} className="">
-            فیلتر
+          <Button
+            variant="outlined"
+            onClick={filterClick}
+            sx={{
+              borderRadius: '50%',
+              minWidth: '40px', 
+              height: '40px', 
+              padding: '8px', 
+            }}
+          >
+            <FilterListIcon />
           </Button>
           <Menu
             id="demo-positioned-menu"
@@ -173,7 +182,7 @@ export function OrdersTable({
                       {order.id}
                     </TableCell>
                     <TableCell align="right">{order.name}</TableCell>
-                    <TableCell align="right">{order.date}</TableCell>
+                    <TableCell align="right">{order.number}</TableCell>
                     <TableCell align="left">{order.total.toLocaleString()}</TableCell>
                     <TableCell align="center">
                       <Badge className={getStatusColor(order.status)} variant="outline">

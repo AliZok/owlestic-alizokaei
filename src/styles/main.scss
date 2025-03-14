@@ -30,18 +30,27 @@ input {
 
 .search-wrapper {
     input::placeholder {
-        font-size: 11px; /* Equivalent to text-sm in Tailwind */
-      }
+        font-size: 11px;
+        /* Equivalent to text-sm in Tailwind */
+    }
 }
 
-body *{
+body * {
     font-family: iransans !important;
 }
 
-.MuiBox-root{
+.MuiBox-root {
     border-left: solid 1px #e6e6e6e3 !important;
     // margin-left: 22px;
 }
-.MuiStack-root.css-1d9cypr-MuiStack-root{
+
+[data-toolpad-color-scheme="dark"] {
+    .MuiBox-root {
+        border-left: 1px solid #424242e3 !important;
+        // margin-left: 22px;
+    }
+}
+
+.MuiStack-root.css-1d9cypr-MuiStack-root {
     padding-right: 22px;
 }
