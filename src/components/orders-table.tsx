@@ -121,14 +121,14 @@ export function OrdersTable({
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground"
+              className="absolute left-2.5 top-3 h-4 w-4 text-muted-foreground"
             >
               <circle cx="11" cy="11" r="8"></circle>
               <path d="m21 21-4.3-4.3"></path>
             </svg>
             <Input
               type="search"
-              placeholder="Search orders..."
+              placeholder="جستجو"
               className="w-full pl-8"
               value={searchQuery}
               onChange={(e) => onSearchChange(e.target.value)}

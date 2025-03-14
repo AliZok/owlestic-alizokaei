@@ -11,20 +11,20 @@ const NAVIGATION: Navigation = [
 
   {
     segment: 'dashboard',
-    title: 'Dashboard',
+    title: 'داشبورد',
     icon: <DashboardIcon />,
   },
   {
     segment: 'orders',
-    title: 'Orders',
+    title: 'سفارشات',
     icon: <ShoppingCartIcon />,
   },
   {
     kind: 'divider',
   },
   {
-    segment: 'integrations',
-    title: 'Integrations',
+    segment: 'settings',
+    title: 'تنظیمات',
     icon: <LayersIcon />,
   },
 ];
@@ -35,6 +35,7 @@ export default function DashboardTemplate({ children, className, ...props }: Das
 
   return (
     <AppProvider
+
       navigation={NAVIGATION}
       branding={{
         logo: <img src="https://owlestic.ir/_next/static/media/v2SecImg2.77c6f305.png" alt="MUI logo" />,
@@ -43,7 +44,7 @@ export default function DashboardTemplate({ children, className, ...props }: Das
       }}
     >
       <DashboardLayout>
-        <div className='p-4'>
+        <div className='p-4 iran-sans'>
           {children}
         </div>
       </DashboardLayout>
