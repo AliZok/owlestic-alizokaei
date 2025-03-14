@@ -43,7 +43,7 @@ export default function DashboardLayoutBasic(props: any) {
       }}
     >
       <DashboardLayout>
-      fuck
+        hello world
       </DashboardLayout>
     </AppProvider>
   );
