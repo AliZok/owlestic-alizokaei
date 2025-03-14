@@ -33,3 +33,7 @@ input {
         font-size: 11px; /* Equivalent to text-sm in Tailwind */
       }
 }
+
+body *{
+    font-family: iransans !important;
+}
