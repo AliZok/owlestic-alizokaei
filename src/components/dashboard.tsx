@@ -21,7 +21,7 @@ export default function Dashboard() {
     const matchesSearch =
       searchQuery === "" ||
       order.id.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      order.customer.name.toLowerCase().includes(searchQuery.toLowerCase())
+      order.name.toLowerCase().includes(searchQuery.toLowerCase())
 
     const matchesStatus = statusFilter === null || order.status === statusFilter
 

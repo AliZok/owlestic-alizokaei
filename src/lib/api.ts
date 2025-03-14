@@ -4,11 +4,6 @@ import type { Order } from "@/types/order"
 const mockOrders: Order[] = [
   {
     id: "1",
-    customer: {
-      id: "CUST-001",
-      name: "کیبورد A4tech",
-      email: "john.doe@example.com",
-    },
     name: "کیبورد A4tech",
     date: "456",
     total: 600000,
@@ -16,11 +11,6 @@ const mockOrders: Order[] = [
   },
   {
     id: "2",
-    customer: {
-      id: "CUST-002",
-      name: "اسپیکر Creative",
-      email: "jane.smith@example.com",
-    },
     name: "اسپیکر Creative",
     date: "53",
     total: 5500000,
@@ -28,11 +18,6 @@ const mockOrders: Order[] = [
   },
   {
     id: "3",
-    customer: {
-      id: "CUST-003",
-      name: "تلویزیون SONY",
-      email: "robert.johnson@example.com",
-    },
     name: "تلویزیون SONY",
     date: "166",
     total: 25000000,
@@ -40,11 +25,6 @@ const mockOrders: Order[] = [
   },
   {
     id: "4",
-    customer: {
-      id: "CUST-004",
-      name: "ساعت هوشمند",
-      email: "emily.davis@example.com",
-    },
     name: "ساعت هوشمند",
     date: "150",
     total: 4500000,
@@ -52,11 +32,6 @@ const mockOrders: Order[] = [
   },
   {
     id: "5",
-    customer: {
-      id: "CUST-005",
-      name: "آیفون 16",
-      email: "michael.wilson@example.com",
-    },
     name: "آیفون 16",
     date: "60",
     total: 120000000,
@@ -64,11 +39,6 @@ const mockOrders: Order[] = [
   },
   {
     id: "6",
-    customer: {
-      id: "6",
-      name: "مانیتور Samsung",
-      email: "sarah.brown@example.com",
-    },
     name: "مانیتور Samsung",
     date: "100",
     total: 23000000,
