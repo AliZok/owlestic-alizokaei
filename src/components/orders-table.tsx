@@ -10,12 +10,14 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import MenuDropDown from "@/components/ui/dropdown-menu"
-import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import type { Order } from "@/types/order"
 import { useOrders } from "@/context/orders-context"
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Button from '@mui/material/Button';
+
 
 interface OrdersTableProps {
   orders: Order[]
@@ -44,6 +46,17 @@ export function OrdersTable({
   statusFilter,
   onStatusFilterChange,
 }: OrdersTableProps) {
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = (value: string) => {
+    setAnchorEl(null);
+    onStatusFilterChange(value)
+  };
+
+
   const { updateOrderStatus } = useOrders()
   const [sortColumn, setSortColumn] = useState<keyof Order>("date")
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("desc")
@@ -136,19 +149,30 @@ export function OrdersTable({
           </div>
         </div>
         <div className="flex items-center space-x-2">
-          <Select value={statusFilter || ""} onValueChange={(value) => onStatusFilterChange(value || null)}>
-            <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder="Filter by status" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Statuses</SelectItem>
-              <SelectItem value="pending">Pending</SelectItem>
-              <SelectItem value="processing">Processing</SelectItem>
-              <SelectItem value="shipped">Shipped</SelectItem>
-              <SelectItem value="delivered">Delivered</SelectItem>
-              <SelectItem value="cancelled">Cancelled</SelectItem>
-            </SelectContent>
-          </Select>
+          <Button variant="outlined" onClick={handleClick} className="">
+            فیلتر
+          </Button>
+          <Menu
+            id="demo-positioned-menu"
+            aria-labelledby="demo-positioned-button"
+            anchorEl={anchorEl}
+            open={open}
+            onClose={() => setAnchorEl(null)}
+            anchorOrigin={{
+              vertical: 'top',
+              horizontal: 'left',
+            }}
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'left',
+            }}
+          >
+            <MenuItem onClick={() => handleClose('pending')}>در انتظار</MenuItem>
+            <MenuItem onClick={() => handleClose('delivered')}>تحویل شده</MenuItem>
+            <MenuItem onClick={() => handleClose('cancelled')}>برگشت خورده</MenuItem>
+            <MenuItem onClick={() => handleClose('processing')}>آماده</MenuItem>
+
+          </Menu>
         </div>
       </div>
       <div className="rounded-md ">
@@ -190,173 +214,11 @@ export function OrdersTable({
                     </TableCell>
                     <TableCell align="center">
                       <MenuDropDown></MenuDropDown>
-                      {/* <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                          <Button variant="ghost" className="h-8 w-8 p-0">
-                            <span className="sr-only">Open menu</span>
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="h-4 w-4"
-                            >
-                              <circle cx="12" cy="5" r="1"></circle>
-                              <circle cx="12" cy="12" r="1"></circle>
-                              <circle cx="12" cy="19" r="1"></circle>
-                            </svg>
-                          </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent align="end">
-                          <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                          <DropdownMenuSeparator />
-                          <DropdownMenuItem onClick={() => (window.location.href = `/orders/${order.id}`)}>
-                            View details
-                          </DropdownMenuItem>
-                          <DropdownMenuSeparator />
-                          <DropdownMenuLabel>Update Status</DropdownMenuLabel>
-                          <DropdownMenuItem
-                            onClick={() => updateOrderStatus(order.id, "pending")}
-                            data-disabled={order.status === "pending"}
-                            className={order.status === "pending" ? "opacity-50 pointer-events-none" : ""}
-                          >
-                            Pending
-                          </DropdownMenuItem>
-                          <DropdownMenuItem
-                            onClick={() => updateOrderStatus(order.id, "processing")}
-                            data-disabled={order.status === "processing"}
-                            className={order.status === "processing" ? "opacity-50 pointer-events-none" : ""}
-                          >
-                            Processing
-                          </DropdownMenuItem>
-                          <DropdownMenuItem
-                            onClick={() => updateOrderStatus(order.id, "shipped")}
-                            data-disabled={order.status === "shipped"}
-                            className={order.status === "shipped" ? "opacity-50 pointer-events-none" : ""}
-                          >
-                            Shipped
-                          </DropdownMenuItem>
-                          <DropdownMenuItem
-                            onClick={() => updateOrderStatus(order.id, "delivered")}
-                            data-disabled={order.status === "delivered"}
-                            className={order.status === "delivered" ? "opacity-50 pointer-events-none" : ""}
-                          >
-                            Delivered
-                          </DropdownMenuItem>
-                          <DropdownMenuItem
-                            onClick={() => updateOrderStatus(order.id, "cancelled")}
-                            data-disabled={order.status === "cancelled"}
-                            className={order.status === "cancelled" ? "opacity-50 pointer-events-none" : ""}
-                          >
-                            Cancelled
-                          </DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu> */}
+
                     </TableCell>
 
                   </TableRow>
                 ))}
-
-
-
-
-
-
-
-              {/* <TableRow key={order.id}>
-                <TableCell className="font-medium">{order.id}</TableCell>
-                <TableCell>{order.customer.name}</TableCell>
-                <TableCell>{new Date(order.date).toLocaleDateString()}</TableCell>
-                <TableCell>${order.total.toFixed(2)}</TableCell>
-                <TableCell>
-                  <Badge className={getStatusColor(order.status)} variant="outline">
-                    {order.status.charAt(0).toUpperCase() + order.status.slice(1)}
-                  </Badge>
-                </TableCell>
-                <TableCell className="text-right">
-                  <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                      <Button variant="ghost" className="h-8 w-8 p-0">
-                        <span className="sr-only">Open menu</span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="h-4 w-4"
-                        >
-                          <circle cx="12" cy="5" r="1"></circle>
-                          <circle cx="12" cy="12" r="1"></circle>
-                          <circle cx="12" cy="19" r="1"></circle>
-                        </svg>
-                      </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end">
-                      <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                      <DropdownMenuSeparator />
-                      <DropdownMenuItem onClick={() => (window.location.href = `/orders/${order.id}`)}>
-                        View details
-                      </DropdownMenuItem>
-                      <DropdownMenuSeparator />
-                      <DropdownMenuLabel>Update Status</DropdownMenuLabel>
-                      <DropdownMenuItem
-                        onClick={() => updateOrderStatus(order.id, "pending")}
-                        data-disabled={order.status === "pending"}
-                        className={order.status === "pending" ? "opacity-50 pointer-events-none" : ""}
-                      >
-                        Pending
-                      </DropdownMenuItem>
-                      <DropdownMenuItem
-                        onClick={() => updateOrderStatus(order.id, "processing")}
-                        data-disabled={order.status === "processing"}
-                        className={order.status === "processing" ? "opacity-50 pointer-events-none" : ""}
-                      >
-                        Processing
-                      </DropdownMenuItem>
-                      <DropdownMenuItem
-                        onClick={() => updateOrderStatus(order.id, "shipped")}
-                        data-disabled={order.status === "shipped"}
-                        className={order.status === "shipped" ? "opacity-50 pointer-events-none" : ""}
-                      >
-                        Shipped
-                      </DropdownMenuItem>
-                      <DropdownMenuItem
-                        onClick={() => updateOrderStatus(order.id, "delivered")}
-                        data-disabled={order.status === "delivered"}
-                        className={order.status === "delivered" ? "opacity-50 pointer-events-none" : ""}
-                      >
-                        Delivered
-                      </DropdownMenuItem>
-                      <DropdownMenuItem
-                        onClick={() => updateOrderStatus(order.id, "cancelled")}
-                        data-disabled={order.status === "cancelled"}
-                        className={order.status === "cancelled" ? "opacity-50 pointer-events-none" : ""}
-                      >
-                        Cancelled
-                      </DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                </TableCell>
-              </TableRow> */}
-
-
-
-
-
-
-
-
-
             </TableBody>
           </Table>
         </TableContainer>
