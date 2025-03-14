@@ -93,7 +93,7 @@ export function OrdersTable({
     switch (status) {
       case "pending":
         return "bg-yellow-200 text-yellow-600"
-      case "processing":
+      case "ready":
         return "bg-sky-400/20 text-sky-700"
       case "delivered":
         return "bg-teal-400/20 text-teal-600"
@@ -108,7 +108,7 @@ export function OrdersTable({
     switch (status) {
       case "pending":
         return "در انتظار"
-      case "processing":
+      case "ready":
         return "آماده"
       case "delivered":
         return "تحویل شده"
@@ -170,7 +170,7 @@ export function OrdersTable({
             <MenuItem onClick={() => handleClose('pending')}>در انتظار</MenuItem>
             <MenuItem onClick={() => handleClose('delivered')}>تحویل شده</MenuItem>
             <MenuItem onClick={() => handleClose('cancelled')}>برگشت خورده</MenuItem>
-            <MenuItem onClick={() => handleClose('processing')}>آماده</MenuItem>
+            <MenuItem onClick={() => handleClose('ready')}>آماده</MenuItem>
 
           </Menu>
         </div>
