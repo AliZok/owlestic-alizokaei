@@ -110,7 +110,7 @@ export function OrdersTable({
     <div className="space-y-4">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex w-full max-w-sm items-center space-x-2">
-          <div className="relative w-full">
+          <div className="relative w-full search-wrapper ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -121,7 +121,7 @@ export function OrdersTable({
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="absolute left-2.5 top-3 h-4 w-4 text-muted-foreground"
+              className="absolute left-2.5 top-3 h-4 w-4 text-sky-400"
             >
               <circle cx="11" cy="11" r="8"></circle>
               <path d="m21 21-4.3-4.3"></path>
@@ -129,7 +129,7 @@ export function OrdersTable({
             <Input
               type="search"
               placeholder="جستجو"
-              className="w-full pl-8"
+              className="w-full pl-8 placeholder-sky-400 focus:placeholder-sky-600"
               value={searchQuery}
               onChange={(e) => onSearchChange(e.target.value)}
             />
@@ -156,7 +156,7 @@ export function OrdersTable({
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
               <TableRow>
-                <TableCell  align="right">شناسه</TableCell>
+                <TableCell align="right">شناسه</TableCell>
                 <TableCell align="right">محصول</TableCell>
                 <TableCell align="right">تعداد</TableCell>
                 <TableCell align="left">قیمت</TableCell>

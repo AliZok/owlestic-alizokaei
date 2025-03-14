@@ -9,16 +9,27 @@
     }
 }
 
-.iran-sans{
+.iran-sans {
     font-family: 'IranSans' !important;
 }
 
-.css-rizt0-MuiTypography-root{
+.css-rizt0-MuiTypography-root {
     font-family: 'IranSans' !important;
     text-align: right;
 }
 
-.css-1fx5hi-MuiListItemIcon-root{
+.css-1fx5hi-MuiListItemIcon-root {
     margin-left: calc(1.2 * var(--mui-spacing)) !important;
     margin-right: auto !important;
+}
+
+input {
+    outline: none !important;
+}
+
+
+.search-wrapper {
+    input::placeholder {
+        font-size: 11px; /* Equivalent to text-sm in Tailwind */
+      }
 }

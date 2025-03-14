@@ -68,3 +68,12 @@ body {
   font-weight: normal;
   font-style: normal;
 }
+
+
+.my-input {
+  @apply border-sky-400 border-2
+}
+
+.my-input:focus {
+  @apply border-sky-600 border-2
+}
