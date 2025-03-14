@@ -37,9 +37,9 @@ export default function DashboardLayoutBasic(props: any) {
     <AppProvider
       navigation={NAVIGATION}
       branding={{
-        logo: <img src="https://mui.com/static/logo.png" alt="MUI logo" />,
-        title: 'MUI',
-        homeUrl: '/toolpad/core/introduction',
+        logo: <img src="https://owlestic.ir/_next/static/media/v2SecImg2.77c6f305.png" alt="MUI logo" />,
+        title: 'Owlestic',
+        homeUrl: '/',
       }}
     >
       <DashboardLayout>
