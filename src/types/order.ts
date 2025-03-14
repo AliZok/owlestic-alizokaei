@@ -6,6 +6,7 @@ export interface Customer {
 
 export interface Order {
   id: string
+  name: string
   customer: Customer
   date: string
   total: number

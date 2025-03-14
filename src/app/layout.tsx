@@ -7,8 +7,8 @@ import '@/styles/main.scss';
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Order Management Dashboard",
-  description: "A dashboard for managing customer orders",
+  title: "الستیک",
+  description: "داشبورد مدیریت دارایی الستیک",
 }
 
 export default function RootLayout({

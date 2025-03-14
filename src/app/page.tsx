@@ -3,8 +3,8 @@ import { OrdersProvider } from "@/context/orders-context"
 import Dashboard from "@/components/dashboard"
 
 export const metadata: Metadata = {
-  title: "Order Management Dashboard",
-  description: "A dashboard for managing customer orders",
+  title: "الستیک",
+  description: "داشبورد فروش اجناس",
 }
 
 export default function Page() {
