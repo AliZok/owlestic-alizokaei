@@ -67,8 +67,7 @@ export function OrdersTable({
         return "bg-teal-400/20 text-teal-600"
       case "cancelled":
         return "bg-pink-500/20 text-pink-700"
-      default:
-        return "bg-gray-500/20 text-gray-700"
+
     }
   }
 
@@ -82,8 +81,7 @@ export function OrdersTable({
         return "تحویل شده"
       case "cancelled":
         return "کنسل شده"
-      default:
-        return "bg-gray-500/20 text-gray-700"
+
     }
   }
 
@@ -122,9 +120,9 @@ export function OrdersTable({
             onClick={filterClick}
             sx={{
               borderRadius: '50%',
-              minWidth: '40px', 
-              height: '40px', 
-              padding: '8px', 
+              minWidth: '40px',
+              height: '40px',
+              padding: '8px',
             }}
           >
             <FilterListIcon />
