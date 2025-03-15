@@ -14,6 +14,12 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-and also iransans font for farsi texts
+and also vazir font for farsi texts and numbers
+
+and using a file api for get mock api list for showing orders in table and manupulate status orders by a dropdown in table row.
+
+the search box searchs by name and id of orders.
+
+ui framwork using material ui.
 
 
