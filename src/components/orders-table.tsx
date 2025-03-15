@@ -79,8 +79,8 @@ export function OrdersTable({
 
   return (
     <div className="space-y-4">
-      <div className="flex gap-4 flex-row sm:items-center justify-between">
-        <div className="flex w-full items-center space-x-2 max-w-[300px]">
+      <div className="flex flex-row justify-between sm:items-center gap-4">
+        <div className="flex items-center space-x-2 w-full max-w-[300px]">
           <div className="relative w-full search-wrapper">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -92,7 +92,7 @@ export function OrdersTable({
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="absolute left-2.5 top-3 h-4 w-4 text-sky-800"
+              className="top-3 left-2.5 absolute w-4 h-4 text-sky-800"
             >
               <circle cx="11" cy="11" r="8"></circle>
               <path d="m21 21-4.3-4.3"></path>
@@ -100,7 +100,7 @@ export function OrdersTable({
             <Input
               type="search"
               placeholder="جستجو"
-              className="w-full pl-8 placeholder-sky-800 focus:placeholder-sky-800 "
+              className="pl-8 w-full placeholder-sky-800 focus:placeholder-sky-800"
               value={searchQuery}
               onChange={(e) => onSearchChange(e.target.value)}
             />
@@ -205,34 +205,31 @@ export function OrdersTable({
                     }}
                   >
                     <div className='flex justify-between mb-1'>
-                      <Typography >شناسه:</Typography>
-                      <Typography>{order.id}</Typography>
+                      <Typography className='!text-[12px]'> شناسه:</Typography>
+                      <Typography >{order.id}</Typography>
                     </div>
                     <div className='flex justify-between mb-1' >
-                      <Typography >محصول:</Typography>
-                      <Typography>{order.name}</Typography>
+                      <Typography className='!text-[12px]'> محصول:</Typography>
+                      <Typography >{order.name}</Typography>
                     </div>
                     <div className='flex justify-between mb-1'>
-                      <Typography >تعداد:</Typography>
-                      <Typography>{order.number}</Typography>
+                      <Typography className='!text-[12px]'>تعداد:</Typography>
+                      <Typography >{order.number}</Typography>
                     </div>
                     <div className='flex justify-between mb-1'>
-                      <Typography >قیمت:</Typography>
+                      <Typography className='!text-[12px]'>قیمت:</Typography>
                       <Typography>{order.total.toLocaleString()}</Typography>
                     </div>
                     <div className='flex justify-between mb-1'>
-                      <Typography >وضعیت:</Typography>
+                      <Typography className='!text-[12px]'>وضعیت:</Typography>
                       <Badge className={getStatusColor(order.status)} variant="outline">
                         {getStatusText(order.status)}
                       </Badge>
                     </div>
                     <div className='flex justify-between'>
-                      <Typography >عملیات:</Typography>
+                      <Typography className='!text-[12px]'>عملیات:</Typography>
                       <MenuDropDown order={order}></MenuDropDown>
-
                     </div>
-
-
                   </Box>
                 ))
               )}
