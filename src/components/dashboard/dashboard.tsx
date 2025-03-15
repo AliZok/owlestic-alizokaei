@@ -2,10 +2,10 @@
 
 import { useEffect, useState } from "react"
 import { useOrders } from "@/context/orders-context"
-import { OrdersTable } from "@/components/orders-table"
-import { DashboardHeader } from "@/components/dashboard-header"
-import { DashboardStats } from "@/components/dashboard-stats"
-import DashboardTemplate from "@/components/dashboard-template"
+import { OrdersTable } from "@/components/dashboard/orders-table"
+import { DashboardHeader } from "@/components/dashboard/dashboard-header"
+import { DashboardStats } from "@/components/dashboard/dashboard-stats"
+import DashboardTemplate from "@/components/dashboard/dashboard-template"
 import { Button } from "@/components/ui/button"
 
 export default function Dashboard() {
@@ -32,7 +32,7 @@ export default function Dashboard() {
     return (
       <DashboardTemplate>
         <DashboardHeader heading="سفارشات" text="مدیریت سفارشات مشتریان" className='mb-2'/>
-        <div className="flex flex-col items-center justify-center space-y-4 py-12">
+        <div className="flex flex-col justify-center items-center space-y-4 py-12">
           <p className="text-muted-foreground">Failed to load orders: {error}</p>
           <Button onClick={() => fetchOrders()}>Try Again</Button>
         </div>

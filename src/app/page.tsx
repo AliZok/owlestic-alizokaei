@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import { OrdersProvider } from "@/context/orders-context"
-import Dashboard from "@/components/dashboard"
+import Dashboard from "../components/dashboard/dashboard"
 
 export const metadata: Metadata = {
   title: "الستیک",
