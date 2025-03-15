@@ -24,7 +24,7 @@
 body {
   background: var(--background);
   /* font-family: Arial, Helvetica, sans-serif; */
-  font-family: 'IranSans' !important;
+  font-family: 'Vazirmatn FD' !important;
 }
 
 @font-face {
@@ -34,3 +34,102 @@ body {
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Vazirmatn FD';
+  src: url('@/assets/fonts/Vazirmatn-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'siteFont';
+  src: url('@/assets/fonts/Vazirmatn-Thin.woff2') format('woff2');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'siteFont';
+  src: url('@/assets/fonts/Vazirmatn-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'siteFont';
+  src: url('@/assets/fonts/Vazirmatn-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'siteFont';
+  src: url('@/assets/fonts/Vazirmatn-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'siteFont';
+  src: url('@/assets/fonts/Vazirmatn-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'siteFont';
+  src: url('@/assets/fonts/Vazirmatn-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+@font-face {
+  font-family: 'siteFont';
+  src: url('@/assets/fonts/Vazirmatn-Black.woff2') format('woff2');
+
+}
+
+@font-face {
+  font-family: Vazirmatn FD;
+  src: url('@/assets/fonts/Vazirmatn-FD-ExtraLight.woff2') format('woff2');
+
+}
+
+@font-face {
+  font-family: Vazirmatn FD;
+  src: url('@/assets/fonts/Vazirmatn-FD-Light.woff2') format('woff2');
+
+}
+
+@font-face {
+  font-family: Vazirmatn FD;
+  src: url('@/assets/fonts/Vazirmatn-FD-Regular.woff2') format('woff2');
+
+}
+
+@font-face {
+  font-family: Vazirmatn FD;
+  src: url('@/assets/fonts/Vazirmatn-FD-Medium.woff2') format('woff2');
+
+}
+
+@font-face {
+  font-family: Vazirmatn FD;
+  src: url('@/assets/fonts/Vazirmatn-FD-SemiBold.woff2') format('woff2');
+
+}
+
+@font-face {
+  font-family: Vazirmatn FD;
+  src: url('@/assets/fonts/Vazirmatn-FD-Bold.woff2') format('woff2');
+
+}

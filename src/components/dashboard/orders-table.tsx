@@ -189,7 +189,7 @@ export function OrdersTable({
           </div>
 
           <div className='md:hidden block'>
-            <Box sx={{ p: 2 }}>
+            <Box sx={{ p: 2 }} >
               {orders.length === 0 ? (
                 <Typography className="h-24 text-center">هیچ سفارشی موجود نیست</Typography>
               ) : (
