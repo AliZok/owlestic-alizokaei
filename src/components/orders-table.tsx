@@ -18,7 +18,6 @@ import {
   TableCell,
   TableBody,
   Paper,
-  useMediaQuery,
   Box,
   Typography,
 } from '@mui/material';
