@@ -26,9 +26,9 @@ const MenuDropDown = ({ children, className, order }: MenuDropDownProps) => {
 
 
   return (
-    <div className="MenuDropDown inline-block rounded-full hover:bg-gray-100 cursor-pointer">
+    <div className="inline-block hover:bg-gray-100 rounded-full cursor-pointer MenuDropDown">
       <div>
-        <div className="h-8 w-8 flex items-center justify-center" onClick={handleClick} id="demo-positioned-button">
+        <div className="flex justify-center items-center w-8 h-8" onClick={handleClick} id="demo-positioned-button">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -39,7 +39,7 @@ const MenuDropDown = ({ children, className, order }: MenuDropDownProps) => {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="h-4 w-4"
+            className="w-4 h-4"
           >
             <circle cx="12" cy="5" r="1"></circle>
             <circle cx="12" cy="12" r="1"></circle>
@@ -62,7 +62,7 @@ const MenuDropDown = ({ children, className, order }: MenuDropDownProps) => {
         >
           <MenuItem onClick={() => handleClose('ready')}>آماده</MenuItem>
           <MenuItem onClick={() => handleClose('pending')}>در انتظار</MenuItem>
-          <MenuItem onClick={() => handleClose('delivered')}>ارسال شده</MenuItem>
+          <MenuItem onClick={() => handleClose('delivered')}>تحویل شده</MenuItem>
           <MenuItem onClick={() => handleClose('cancelled')}>کنسل شده</MenuItem>
         </Menu>
       </div>

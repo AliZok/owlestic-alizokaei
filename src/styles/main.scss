@@ -26,9 +26,15 @@
 input {
     outline: none !important;
 }
+main{
+    background: #f1f1f1;
+}
+.bg-card{
+    background: white;
+}
 
 .MuiStack-root.css-jjhd74-MuiStack-root{
-    display: none;
+    // display: none;
 }
 
 .search-wrapper {
@@ -55,6 +61,18 @@ body * {
 
     .my-input{
         background: #212121;
+    }
+    main{
+        background: #2d2d2d;
+    }
+    .bg-card{
+        background: #1c1c1c;
+    }
+    .text-gray-500{
+        color: #ebebeb;
+    }
+    .text-gray-600{
+        color: #ebebeb;
     }
 }
 

@@ -51,9 +51,9 @@ export function OrdersTable({
   const getStatusColor = (status: string) => {
     switch (status) {
       case "pending":
-        return "bg-yellow-200 text-yellow-600"
+        return "bg-yellow-200/20 text-yellow-600"
       case "ready":
-        return "bg-sky-400/20 text-sky-700"
+        return "bg-sky-400/20 text-sky-600"
       case "delivered":
         return "bg-teal-400/20 text-teal-600"
       case "cancelled":
